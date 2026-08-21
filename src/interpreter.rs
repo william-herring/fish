@@ -1,12 +1,13 @@
 use std::fs;
 use std::io;
-use std::io::BufRead;
+use std::io::{BufRead, Write};
 
 pub struct Interpreter;
 
 impl Interpreter {
     pub fn execute(source: String) {
-        
+        // test
+        println!("{source}");
     }
 
     pub fn execute_file(path_to_file: String) -> Result<(), io::Error> {
@@ -19,16 +20,21 @@ impl Interpreter {
     pub fn shell() -> Result<(), io::Error> {
         let instream = io::stdin();
         print!(">> ");
+        io::stdout().flush().expect("Prompt could not be output.");
 
         for line in instream.lock().lines() {
             match line {
                 Ok(input) => {
-                    Self::execute(input);
+                    if input != "" {
+                        Self::execute(input);
+                    }
                 }
                 Err(e) => {
                     Self::error(-1, format!("Could not read line {}", e));
                 }
             }
+            print!(">> ");
+            io::stdout().flush().expect("Prompt could not be output.");
         }
         println!("Exited shell");
 
