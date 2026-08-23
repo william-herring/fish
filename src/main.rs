@@ -1,5 +1,7 @@
 use std::env;
 mod interpreter;
+mod lexer;
+
 use interpreter::Interpreter;
 
 fn main() {
