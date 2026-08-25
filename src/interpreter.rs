@@ -1,13 +1,21 @@
 use std::fs;
 use std::io;
 use std::io::{BufRead, Write};
+use logos::Logos;
+use crate::lexer::Token;
 
 pub struct Interpreter;
 
 impl Interpreter {
     pub fn execute(source: String) {
         // test
-        println!("{source}");
+        let mut lex = Token::lexer(&*source);
+        for result in lex {
+            match result {
+                Ok(token) => println!("{:#?}", token),
+                Err(e) => panic!("some error occurred"),
+            }
+        }
     }
 
     pub fn execute_file(path_to_file: String) -> Result<(), io::Error> {
