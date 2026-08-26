@@ -10,11 +10,12 @@ impl Interpreter {
     pub fn execute(source: String) {
         // test
         let mut lex = Token::lexer(&*source);
-        for result in lex {
+        while let Some(result) = lex.next() {
             match result {
-                Ok(token) => println!("{:#?}", token),
-                Err(e) => panic!("some error occurred"),
+                Ok(token) => print!("{:#?} ", token),
+                Err(e) => println!("Uhh")
             }
+            println!("{}", lex.slice())
         }
     }
 

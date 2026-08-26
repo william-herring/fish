@@ -20,6 +20,8 @@ pub enum Token {
     Not,
     #[token("in")]
     In,
+    #[token("use")]
+    Use,
     
     #[token("if")]
     If,
@@ -31,6 +33,9 @@ pub enum Token {
     Break,
     #[token("continue")]
     Continue,
+
+    #[token("print")]
+    Print,
     
     
     #[token("int")]
@@ -41,6 +46,8 @@ pub enum Token {
     FloatKey,
     #[token("bool")]
     BoolKey,
+    #[token("void")]
+    VoidKey,
 
     #[token("->")]
     RangeOp,
