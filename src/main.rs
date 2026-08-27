@@ -1,6 +1,7 @@
 use std::env;
 mod interpreter;
 mod lexer;
+pub mod parser;
 
 use interpreter::Interpreter;
 
