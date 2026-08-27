@@ -5,3 +5,5 @@ edition = "2024"
 
 [dependencies]
 logos = "0.16.1"
+logos-nom-bridge = "0.1.0"
+nom = "8.0.0"
