@@ -1,6 +1,6 @@
 use logos::Logos;
 
-#[derive(Logos, Debug, PartialEq)]
+#[derive(Logos, Clone, Debug, PartialEq)]
 #[logos(skip r"[ \t\n\f]+")] // Ignore whitespace
 pub enum Token {
     #[token("fun")]
