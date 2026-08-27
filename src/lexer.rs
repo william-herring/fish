@@ -5,9 +5,39 @@ use logos::Logos;
 pub enum Token {
     #[token("fun")]
     Fun,
+    // let, what do you even do?
     #[token("let")]
     Let,
+    
+    #[token("true")]
+    True,
+    #[token("false")]
+    False,
+    
+    #[token("and")]
+    And,
+    #[token("not")]
+    Not,
+    #[token("in")]
+    In,
+    #[token("use")]
+    Use,
+    
+    #[token("if")]
+    If,
+    #[token("else")]
+    Else,
+    #[token("for")]
+    For,
+    #[token("break")]
+    Break,
+    #[token("continue")]
+    Continue,
 
+    #[token("print")]
+    Print,
+    
+    
     #[token("int")]
     IntKey,
     #[token("str")]
@@ -16,6 +46,11 @@ pub enum Token {
     FloatKey,
     #[token("bool")]
     BoolKey,
+    #[token("void")]
+    VoidKey,
+
+    #[token("->")]
+    RangeOp,
 
     #[token("=")]
     Assign,
@@ -27,8 +62,14 @@ pub enum Token {
     MulAssign,
     #[token("/=")]
     DivAssign,
+    #[token("//=")]
+    IntDivAssign,
     #[token("%=")]
     ModAssign,
+    #[token("++")]
+    Add1Assign,
+    #[token("--")]
+    Sub1Assign,
 
     #[token("==")]
     EqualTo,
@@ -43,12 +84,42 @@ pub enum Token {
     #[token(">")]
     MoreThan,
 
-    // Feel like there needs to be some way to make it not just grab from the middle of something
-    // Right now if someone tries to put "9a" instead of an error they get
-    // number 9, identifier a
-    // Which I guess could be alright actually
+    #[token("(")]
+    LeftParen,
+    #[token(")")]
+    RightParen,
+    #[token("{")]
+    LeftCurly,
+    #[token("}")]
+    RightCurly,
+    #[token("[")]
+    LeftSquare,
+    #[token("]")]
+    RightSquare,    
+    #[token(",")]
+    Comma,
+    
+    #[token("+")]
+    Plus,
+    #[token("-")]
+    Minus,
+    #[token("*")]
+    Multiply,
+    #[token("//")]
+    IntDivide,
+    #[token("/")]
+    Divide,
+    #[token("!")]
+    Factorial,
+
     #[regex("[a-zA-Z_][a-zA-Z0-9_]*")]
     Ident,
     #[regex("[0-9]+\\.?[0-9]*")]
     Number,
+    #[regex("\".*\"", allow_greedy=true)]
+    #[regex("'.*\'", allow_greedy=true)]
+    String,
+    
+    #[token(".")]
+    Dot,
 }

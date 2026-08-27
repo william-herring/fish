@@ -9,7 +9,9 @@ for (int i in [0->9]) {
 
 if (true) {
     // valid
-} else if (true && false) {
+// if we're doing 'not', let's do
+// 'and' too, it's nicer to type
+} else if (true and false) {
     // unreachable branch
 } else {
     break

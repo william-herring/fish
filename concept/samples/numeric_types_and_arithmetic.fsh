@@ -1,4 +1,6 @@
 !use math
+// Can we skip the !
+// seems like unnecessary special char
 
 fun main() : void {
     // Integer
