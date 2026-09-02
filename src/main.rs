@@ -2,6 +2,7 @@ use std::env;
 mod interpreter;
 mod lexer;
 pub mod parser;
+mod scanner;
 
 use interpreter::Interpreter;
 
