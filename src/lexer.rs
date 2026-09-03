@@ -114,8 +114,8 @@ pub enum Token {
 
     #[regex("[a-zA-Z_][a-zA-Z0-9_]*")]
     Ident,
-    #[regex("[0-9]+\\.?[0-9]*")]
-    Number,
+    #[regex(r"[0-9]+", |lex| lex.slice().parse::<i64>().unwrap())]
+    Int(i64),
     #[regex("\".*\"", allow_greedy=true)]
     #[regex("'.*\'", allow_greedy=true)]
     String,
